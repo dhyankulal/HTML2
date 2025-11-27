@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p><span id="question1">questions</span></p>
+    <input type="text" id="inpt">
+    <button type="button" onclick="check()">Calculate</button>
+    <p id="ans"></p>
+    <button type="button" onclick="next()">Next</button>
+    <script>
+        let i = 0;
+        const question = ["name of the project", "What is the next of 18", "What is the colour of dark", "What is the colour of sun"];
+        const answer = ["Ding", 19, "black", "white"];
+        document.getElementById("question1").textContent = question[i];
+
+        function check() {
+            const iinput = document.getElementById("inpt").value;
+            const result = document.getElementById("ans");
+
+            if (iinput == answer[i]) {
+                result.textContent = "It's correct";
+                result.style.color = "Blue";
+            } else {
+                result.textContent = "wrong";
+                result.style.color = "Red";
+            }
+        }
+        function next() {
+            i = i + 1;
+            if (i < question.length) {
+                document.getElementById("question1").textContent = question[i];
+                document.getElementById("inpt").value = "";
+                document.getElementById("ans").textContent = "";
+            } else {
+                document.getElementById("question1").textContent = "Quiz over";
+                document.getElementById("inpt").value = "close";
+
+            }
+        }
+    </script>
+</body>
+
+</html>

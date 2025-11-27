@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="submit" onclick="date1()">submit</button>
+    <p> <span id="showDate1"></span></p>
+    <p>The time now is: <span id="showDate2"></span></p>
+    <script>
+        function date1() {
+            let dt1 = new Date();
+            document.getElementById("showDate1").textContent = dt1;
+            document.getElementById("showDate2").textContent = dt1;
+        }
+
+    </script>
+</body>
+
+</html>

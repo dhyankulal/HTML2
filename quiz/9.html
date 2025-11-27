@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        background-color: rgb(216, 193, 117);
+        width: 200px;
+        height: 150px;
+        text-align: center;
+        border-radius: 10px;
+    }
+</style>
+<div id="style">
+    <p><span id="question1">questions</span></p>
+    <input type="text" id="inpt">
+    <button type="button" onclick="check()">Next</button>
+    <p id="ans"></p>
+</div>
+
+<script>
+    let count = 0;
+    let i = 0;
+    const question = ["name of the project", "What is the next of 18", "What is the colour of dark", "What is the colour of sun"];
+    const answer = ["Ding", 19, "black", "white"];
+    document.getElementById("question1").textContent = question[i];
+
+    function check() {
+        const iinput = document.getElementById("inpt").value;
+        const result = document.getElementById("ans");
+
+        if (iinput == answer[i]) {
+            count += 1;
+            result.textContent = "It's correct";
+            result.style.color = "Blue";
+            next();
+        } else {
+            result.textContent = "wrong";
+            result.style.color = "Red";
+            next();
+        }
+    }
+    function next() {
+        i = i + 1;
+        if (i < question.length) {
+            document.getElementById("question1").textContent = question[i];
+            document.getElementById("inpt").value = "";
+            document.getElementById("ans").textContent = "";
+        } else {
+            document.getElementById("question1").textContent = "Quiz over";
+            document.getElementById("inpt").value = "";
+            document.getElementById("ans").textContent = "";
+            document.getElementById("ans").textContent = count;
+            result.style.color = "Green";
+        }
+    }
+</script>
+</body>
+
+</html>

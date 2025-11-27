@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    div {
+        background-color: rgb(216, 193, 117);
+        width: 200px;
+        height: 150px;
+        text-align: center;
+        border-radius: 10px;
+    }
+</style>
+<div id="style">
+    <p><span id="question1">questions</span></p>
+    <button id="option1" onclick="check()"></button>
+    <button id="option2" onclick="check()"></button>
+    <button id="option3" onclick="check()"></button>
+    <button id="option4" onclick="check()"></button>
+
+    <p id="ans"></p>
+</div>
+
+<script>
+    let count = 0;
+    let i = 0;
+    const question = ["name of the project", "What is the next of 18", "What is the colour of dark", "What is the colour of sun"];
+    const answer = ["Ding", 19, "black", "white"];
+    const option1 = ["dhyan", 28, "pink", "pink"];
+    const option2 = ["Ding", 38, "yellow", "white"];
+    const option3 = ["Bheem", 20, "black", "task"];
+    const option4 = ["panda", 19, "light blue", "make"];
+
+
+    document.getElementById("question1").textContent = question[i];
+
+    document.getElementById("option1").textContent = option1[i];
+    document.getElementById("option2").textContent = option2[i];
+    document.getElementById("option3").textContent = option3[i];
+    document.getElementById("option4").textContent = option4[i];
+
+    function check() {
+        //const iinput = document.getElementById("inpt").value;//const result = document.getElementById("ans");//if (iinput == answer[i]) {//count += 1;//result.textContent = "It's correct";//result.style.color = "Blue";//next();//} else {//result.textContent = "wrong";//result.style.color = "Red";//next();//}
+        if (option1[i] == answer[i]) {
+            count += 1
+            next()
+        } else if (option2[i] == answer[i]) {
+            count += 1
+            next()
+        } else if (option3[i] == answer[i]) {
+            count += 1
+            next()
+        } else if (option4[i] == answer[i]) {
+            count += 1
+            next()
+        } else {
+            print("ereror")
+        }
+
+
+    }
+    function next() {
+        i = i + 1;
+        if (i < question.length) {
+            //document.getElementById("ans").textContent = "";
+            document.getElementById("ans").textContent = question[i];
+
+            document.getElementById("option1").textContent = option1[i];
+            document.getElementById("option2").textContent = option2[i];
+            document.getElementById("option3").textContent = option3[i];
+            document.getElementById("option4").textContent = option4[i];
+            check()
+
+
+            //document.getElementById("question1").textContent = question[i];//document.getElementById("inpt").value = "";//document.getElementById("ans").textContent = "";
+        } else {
+            document.getElementById("ans").textContent = "done";
+            //document.getElementById("question1").textContent = "Quiz over";//document.getElementById("inpt").value = "";//document.getElementById("ans").textContent = "";//document.getElementById("ans").textContent = count;//result.style.color = "Green";
+        }
+    }
+</script>
+</body>
+
+</html>

@@ -1,0 +1,6 @@
+git init
+git add .
+git commit -m "whrhyuo udui"
+git branch -m main
+git remote origin""
+git push 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p><span id="question1">questions</span></p>
+    <input type="text" id="inpt">
+    <button type="button" onclick="check()">Calculate</button>
+    <p id="ans"></p>
+    <script>
+        const question = ["name of the project", "What is the next of 18", "What is the colour of dark", "What is the colour of sun"];
+        const answer = ["Ding", 19, "black", "white"];
+        document.getElementById("question1").textContent = question[0];
+        //document.getElementById("ding").textContent = answer[0];
+
+        function check() {
+            const iinput = document.getElementById("inpt").value;
+            const result = document.getElementById("ans");
+            //const temp = answer[0]
+            if (iinput == answer[0]) {
+                result.textContent = "It's correct";
+            } else {
+                result.textContent = "wrong";
+            }
+        }
+    </script>
+</body>
+
+</html>

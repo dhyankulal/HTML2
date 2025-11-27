@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2.html</title>
+    <style>
+        .question {
+            border: 1px solid black;
+            height: 200px;
+            text-align: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script>
+        async function main() {
+            let url1 = "https://opentdb.com/api.php?amount=10&category=21&difficulty=medium&type=boolean";
+            let root = document.getElementById("root");
+            let data1 = await (await fetch(url1)).json();
+            for (let i of data1["results"]) {
+                root.innerHTML += `
+                    <div class="question">${i["question"]}</div>
+                `;
+            }
+        }
+        main();
+    </script>
+</body>
+
+</html>

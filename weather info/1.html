@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>udupi weather</p>
+    <p>temperature <span id="p1"></span></p>
+    <p>humidity <span id=""></span></p>
+    <script>
+        async function weather() {
+            p1 = document.getElementById("id1");
+            p2 = document.getElementById("id2");
+
+            let city = "udupi";
+            let apikey = "";
+            let url = ``;
+            let data1 = await feth(url);
+            let data2 = await data1.json();
+
+            p1.innerText = data2["main"]["temp"];
+            p2.innerText =
+                console.log(data2);
+        }
+        weather()
+    </script>
+</body>
+
+</html>

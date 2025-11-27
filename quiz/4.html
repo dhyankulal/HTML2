@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>what is the kohli's jersi number</p>
+    <input type="text" id="take">
+    <button onclick="check()">submit</button>
+    <p id="oresult"></p>
+    <script>
+        function check() {
+            const ans = [18, 20, 22, 24, 26];
+            const inpt = document.getElementById("take").value;
+            const result = document.getElementById("oresult");
+            for (i = 0; i < 5; i++) {
+                const ding = ans[i];
+                if (ding == inpt) {
+                    result.textContent = "it's correct";
+                    result.style.color = "green";
+                    break
+                } else {
+                    result.textContent = "wrong";
+                    result.style.color = "red";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

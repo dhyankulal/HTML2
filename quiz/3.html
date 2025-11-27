@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button type="submit" onclick="square1()">Calculate</button>
+    <p>The square of <span id="showN1"></span> is: <span id="showSquare"></span></p>
+    <script>
+        function square1() {
+            let n1 = 7;
+            let sqr = n1 * n1;
+            document.getElementById("showN1").textContent = n1;
+            document.getElementById("showSquare").textContent = sqr;
+
+        }
+    </script>
+</body>
+
+</html>
