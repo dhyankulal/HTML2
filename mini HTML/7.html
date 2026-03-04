@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <style>
+        /* A little CSS to make the buttons look better for the game */
+        td,
+        button {
+            border: 4px solid black;
+            height: 60px;
+            /* Increased size for better visibility */
+            width: 60px;
+            /* Increased size for better visibility */
+            font-size: 30px;
+            /* Larger text for 'X' and 'O' */
+            font-weight: bold;
+            text-align: center;
+            line-height: 1;
+            cursor: pointer;
+            box-sizing: border-box;
+            background-color: #f0f0f0;
+        }
+
+        /* Styling the table for a centered look */
+        table {
+            border-collapse: collapse;
+            margin: 20px auto;
+            /* Center the table */
+        }
+
+        #reset-btn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #ans {
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td><button onclick="ding(1)" id="ting1"></button></td>
+            <td><button onclick="ding(2)" id="ting2"></button></td>
+            <td><button onclick="ding(3)" id="ting3"></button></td>
+        </tr>
+        <tr>
+            <td><button onclick="ding(4)" id="ting4"></button></td>
+            <td><button onclick="ding(5)" id="ting5"></button></td>
+            <td><button onclick="ding(6)" id="ting6"></button></td>
+        </tr>
+        <tr>
+            <td><button onclick="ding(7)" id="ting7"></button></td>
+            <td><button onclick="ding(8)" id="ting8"></button></td>
+            <td><button onclick="ding(9)" id="ting9"></button></td>
+        </tr>
+    </table>
+    <p id="ans"></p>
+    <button id="reset-btn" onclick="resetGame()" style="display: none;">Reset Game</button>
+</body>
+<script>
+    let sep = 0; // Move counter
+    let gameActive = true;
+    let player = "x"; // Current player
+
+    document.getElementById("ans").textContent = "Player X starts the game!";
+
+    function ding(num) {
+        let button = document.getElementById("ting" + num);
+
+        // 1. Check if the game is active and the cell is empty
+        if (!gameActive || button.textContent !== "") {
+            return;
+        }
+
+        if ((sep % 2) == 0) {
+            player = "x";
+        } else {
+            player = "o";
+        }
+
+        button.textContent = player;
+        sep++;
+
+        ping();
+    }
+
+    function ping() {
+        const d1 = document.getElementById("ting1").textContent;
+        const d2 = document.getElementById("ting2").textContent;
+        const d3 = document.getElementById("ting3").textContent;
+        const d4 = document.getElementById("ting4").textContent;
+        const d5 = document.getElementById("ting5").textContent;
+        const d6 = document.getElementById("ting6").textContent;
+        const d7 = document.getElementById("ting7").textContent;
+        const d8 = document.getElementById("ting8").textContent;
+        const d9 = document.getElementById("ting9").textContent;
+
+        const winConditions = [
+            [d1, d2, d3], // Top row
+            [d4, d5, d6], // Middle row
+            [d7, d8, d9], // Bottom row
+            [d1, d4, d7], // Left column
+            [d2, d5, d8], // Middle column
+            [d3, d6, d9], // Right column
+            [d1, d5, d9], // Diagonal 1
+            [d3, d5, d7]  // Diagonal 2
+        ];
+
+        let winnerFound = false;
+
+        for (let condition of winConditions) {
+            if (condition[0] !== "" && condition[0] === condition[1] && condition[1] === condition[2]) {
+                win(condition[0]); // Pass the winning player ('x' or 'o')
+                winnerFound = true;
+                break;
+            }
+        }
+
+        if (!winnerFound && sep === 9) {
+            document.getElementById("ans").textContent = "Game over! The match is a tie.";
+            gameActive = false;
+            document.getElementById("reset-btn").style.display = 'block';
+        } else if (!winnerFound) {
+            let nextPlayer = (player === "x") ? "o" : "x";
+            document.getElementById("ans").textContent = `It's Player ${nextPlayer}'s turn.`;
+        }
+    }
+
+    function win(winningPlayer) {
+        document.getElementById("ans").textContent = `Player ${winningPlayer.toUpperCase()} wins!`;
+        gameActive = false; // Stop the game
+        document.getElementById("reset-btn").style.display = 'block'; // Show reset button
+    }
+
+    function resetGame() {
+        sep = 0;
+        gameActive = true;
+        player = "x";
+        document.getElementById("ans").textContent = "Player X starts the game!";
+        document.getElementById("reset-btn").style.display = 'none';
+
+        for (let i = 1; i <= 9; i++) {
+            document.getElementById("ting" + i).textContent = "";
+        }
+    }
+
+</script>
+
+</html>

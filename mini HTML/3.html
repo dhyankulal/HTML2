@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border: 4px solid black;
+            height: 30px;
+            width: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="chess"></table>
+
+</body>
+<script>
+    let list1 = ["&#9814", "&#9816", "&#9815", "&#9812", "&#9813", "&#9815", "&#9816", "&#9814", "&#9817", "&#9817", "&#9817", "&#9817", "&#9817", "&#9817", "&#9817", "&#9817", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", ".", "&#9823", "&#9823", "&#9823", "&#9823", "&#9823", "&#9823", "&#9823", "&#9823", "&#9820", "&#9822", "&#9821", "&#9818", "&#9819", "&#9821", "&#9822", "&#9820"];
+    let content = "";
+    let k = 0;
+    for (i = 0; i < 8; i++) {
+        content += "<tr>";
+        for (j = 0; j < 8; j++) {
+            if ((i + j) % 2 == 0) {
+                color = "white";
+            } else {
+                color = "green";
+            }
+            content += `<td style="background-color:${color}">${list1[k]}</td>`;
+            k += 1;
+        }
+    }
+    document.getElementById("chess").innerHTML = content;
+</script>
+
+</html>

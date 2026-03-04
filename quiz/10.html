@@ -59,28 +59,29 @@
             count += 1
             next()
         } else {
-            print("ereror")
+            count -= 1
         }
-
-
     }
     function next() {
-        i = i + 1;
+        i += 1;
         if (i < question.length) {
             //document.getElementById("ans").textContent = "";
-            document.getElementById("ans").textContent = question[i];
+            document.getElementById("question1").textContent = question[i];
 
             document.getElementById("option1").textContent = option1[i];
             document.getElementById("option2").textContent = option2[i];
             document.getElementById("option3").textContent = option3[i];
             document.getElementById("option4").textContent = option4[i];
-            check()
-
 
             //document.getElementById("question1").textContent = question[i];//document.getElementById("inpt").value = "";//document.getElementById("ans").textContent = "";
         } else {
-            document.getElementById("ans").textContent = "done";
+            document.getElementById("ans").textContent = count;
             //document.getElementById("question1").textContent = "Quiz over";//document.getElementById("inpt").value = "";//document.getElementById("ans").textContent = "";//document.getElementById("ans").textContent = count;//result.style.color = "Green";
+        }
+        function click(t) {
+            if (onclick == answer[t]) {
+
+            }
         }
     }
 </script>

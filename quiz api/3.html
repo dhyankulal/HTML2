@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.html</title>
+    <style>
+        .question {
+            border: 1px solid black;
+            height: 200px;
+            text-align: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="class1">
+        <p id="id1"></p>
+        <button id="id2">generate joke</button>
+    </div>
+    <script>
+        async function main() {
+            let url1 = "https://v2.jokeapi.dev/joke/Programming?type=single&amount=4";
+
+            let id1 = document.getElementById("id1");
+            let id2 = document.getElementById("id2");
+
+            id2.onclick = async function () {
+                let dat1 = await fetch(url1);
+                let dat2 = await dat1.json();
+                let jok1 = dat2["joke"];
+                id1.innerHTML = jok1;
+            };
+        }
+        main()
+        //let dat1 = await (await fetch(url1)).json();
+
+    </script>
+</body>
+
+</html>

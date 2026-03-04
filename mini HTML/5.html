@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        td {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <button onclick="ding1()" id="ting1">1</button>
+            <button onclick="ding2()" id="ting2">2</button>
+            <button onclick="ding3()" id="ting3">3</button>
+        </tr>
+        <tr>
+            <button onclick="ding4()" id="ting4">4</button>
+            <button onclick="ding5()" id="ting5">5</button>
+            <button onclick="ding6()" id="ting6">6</button>
+        </tr>
+        <tr>
+            <button onclick="ding7()" id="ting7">7</button>
+            <button onclick="ding8()" id="ting8">8</button>
+            <button onclick="ding9()" id="ting9">9</button>
+        </tr>
+        <p id="ans"></p>
+    </table>
+</body>
+<script>
+    let count = 0;
+    while (true) {
+        if (count % 2 == 0) {
+            player = "x";
+            count++;
+        } else {
+            player = "o";
+            count++;
+        }
+        function ding1() {
+            document.getElementById("ting1").textContent = player;
+        }
+        function ding2() {
+            document.getElementById("ting2").textContent = player;
+        }
+        function ding3() {
+            document.getElementById("ting3").textContent = player;
+        }
+        function ding4() {
+            document.getElementById("ting4").textContent = player;
+        }
+        function ding5() {
+            document.getElementById("ting5").textContent = player;
+        }
+        function ding6() {
+            document.getElementById("ting6").textContent = player;
+        }
+        function ding7() {
+            document.getElementById("ting7").textContent = player;
+        }
+        function ding8() {
+            document.getElementById("ting8").textContent = player;
+        }
+        function ding9() {
+            document.getElementById("ting9").textContent = player;
+        }
+        if ((ding1 == "x" && ding2 == "x" && ding3 == "x") || (ding4 == "x" && ding5 == "x" && ding6 == "x") || (ding7 == "x" && ding8 == "x" && ding9 == "x") || (ding1 == "x" && ding5 == "x" && ding9 == "x") || (ding3 == "x" && ding5 == "x" && ding7 == "x") || (ding1 == "x" && ding4 == "x" && ding7 == "x") || (ding2 == "x" && ding5 == "x" && ding8 == "x") || (ding3 == "x" && ding6 == "x" && ding9 == "x")) {
+            document.getElementById("ans").textContent = "X won the game";
+            break;
+        } else if ((ding1 == "o" && ding2 == "o" && ding3 == "o") || (ding4 == "o" && ding5 == "o" && ding6 == "o") || (ding7 == "o" && ding8 == "o" && ding9 == "o") || (ding1 == "o" && ding5 == "o" && ding9 == "o") || (ding3 == "o" && ding5 == "o" && ding7 == "o") || (ding1 == "o" && ding4 == "o" && ding7 == "o") || (ding2 == "o" && ding5 == "o" && ding8 == "o") || (ding3 == "o" && ding6 == "o" && ding9 == "o")) {
+            document.getElementById("ans").textContent = "O won the  match";
+            break;
+        } else {
+            break;
+        }
+    }
+
+</script>
+
+</html>

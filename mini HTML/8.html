@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button {
+            height: 100px;
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <tr>
+        <td><button id="ting1" onclick="ding(1)"></button></td>
+        <td><button id="ting2" onclick="ding(2)"></button></td>
+        <td><button id="ting3" onclick="ding(3)"></button></td>
+    </tr>
+    <tr>
+        <td><button id="ting4" onclick="ding(4)"></button></td>
+        <td><button id="ting5" onclick="ding(5)"></button></td>
+        <td><button id="ting6" onclick="ding(6)"></button></td>
+    </tr>
+    <tr>
+        <td><button id="ting7" onclick="ding(7)"></button></td>
+        <td><button id="ting8" onclick="ding(8)"></button></td>
+        <td><button id="ting9" onclick="ding(9)"></button></td>
+    </tr>
+    <tr>
+        <td id="ans"></td>
+    </tr>
+</body>
+<script>
+    let sep = 0;
+    function ding(num) {
+        if (sep < 9) {
+            if ((sep % 2) == 0) {
+                player = "X";
+            } else {
+                player = "O";
+            }
+            document.getElementById("ting" + num).textContent = player;
+            sep += 1;
+            check(num);
+        }
+    }
+    function check(num) {
+        let d1 = document.getElementById("ting1").textContent;
+        let d2 = document.getElementById("ting2").textContent;
+        let d3 = document.getElementById("ting3").textContent;
+        let d4 = document.getElementById("ting4").textContent;
+        let d5 = document.getElementById("ting5").textContent;
+        let d6 = document.getElementById("ting6").textContent;
+        let d7 = document.getElementById("ting7").textContent;
+        let d8 = document.getElementById("ting8").textContent;
+        let d9 = document.getElementById("ting9").textContent;
+
+        if (d1 === d2 && d2 === d3 && d3 === d1 && d1 !== "") {
+            document.getElementById("ans").textContent = "winner";
+        }
+        return;
+    }
+</script>
+
+</html>

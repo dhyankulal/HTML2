@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Holiday Finder</title>
+</head>
+
+<body>
+
+    <h2>Holiday Checker</h2>
+
+    <input type="text" id="dateInput" placeholder="DD-MM-YYYY">
+    <button onclick="checkHoliday()">Check</button>
+
+    <p id="result"></p>
+
+    <script>
+        let holidayData;
+
+        // load JSON file
+        fetch("holidays.json")
+            .then(res => res.json())
+            .then(data => {
+                holidayData = data.holidays;
+            });
+
+        function checkHoliday() {
+            let inputDate = document.getElementById("dateInput").value;
+            let result = document.getElementById("result");
+
+            let found = holidayData.find(h => h.date === inputDate);
+
+            if (found) {
+                result.innerText =
+                    "Holiday: " + found.name + " (" + found.Day + ")";
+            } else {
+                result.innerText = "No holiday on this date";
+            }
+        }
+    </script>
+
+</body>
+
+</html>
