@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calendar using javascript</title>
+</head>
+
+<body>
+    <p>Today's date is :</p>
+    <p id="greeting1"></p>
+    <p id="date1"></p>
+    <p id="date2"></p>
+    <script>
+        const days = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+        let info1 = 0;
+        for (let i = 1; i < 32; i++) {
+            info1 = (info1 + i) + " - " + days[(i + 2) % 7] + "<br>";
+        }
+
+        let s1 = " ";
+
+        document.getElementById("greeting1").textContent = s1;
+        document.getElementById("date2").innerHTML = info1;
+    </script>
+</body>
+
+</html>
