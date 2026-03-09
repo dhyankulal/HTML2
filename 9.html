@@ -73,7 +73,7 @@
             <td class="light">.</td>
             <td class="dark">.</td>
             <td class="light">.</td>
-            <td class="dark">.</td>
+            <td class="dark" id="id2">.</td>
             <td class="light">.</td>
             <td class="dark">.</td>
             <td class="light">.</td>
@@ -93,7 +93,7 @@
             <td class="light">&#9817</td>
             <td class="dark">&#9817</td>
             <td class="light">&#9817</td>
-            <td class="dark">&#9817</td>
+            <td class="dark" id="id1">&#9817</td>
             <td class="light">&#9817</td>
             <td class="dark">&#9817</td>
             <td class="light">&#9817</td>
@@ -111,6 +111,15 @@
         </tr>
 
     </table>
+    <button id="button1">Next</button>
+    <script>
+        let btn1 = document.getElementById("button1");
+        btn1.onclick = function nextMove() {
+            document.getElementById("id1").innerHTML = "";
+            document.getElementById("id2").innerHTML = "&#9817";
+        }
+
+    </script>
 </body>
 
 </html>
