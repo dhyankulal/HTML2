@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .light {
+            background-color: #d18b47;
+        }
+
+        .dark {
+            background-color: #ffcd9e;
+        }
+
+        td {
+            text-align: center;
+            font-size: 2rem;
+            width: 60px;
+            height: 60px;
+        }
+
+        table {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr>
+            <td class="light" id="r11">&#9820</td>
+            <td class="dark" id="r12">&#9822</td>
+            <td class="light" id="r13">&#9821</td>
+            <td class="dark" id="r14">&#9818</td>
+            <td class="light" id="r15">&#9819</td>
+            <td class="dark" id="r16">&#9821</td>
+            <td class="light" id="r17">&#9822</td>
+            <td class="dark" id="r18">&#9820</td>
+        </tr>
+        <tr>
+            <td class="dark" id="r21">&#9823</td>
+            <td class="light" id="r22">&#9823</td>
+            <td class="dark" id="r23">&#9823</td>
+            <td class="light" id="r24">&#9823</td>
+            <td class="dark" id="r25">&#9823</td>
+            <td class="light" id="r26">&#9823</td>
+            <td class="dark" id="r27">&#9823</td>
+            <td class="light" id="r28">&#9823</td>
+        </tr>
+        <tr>
+            <td class="light" id="r31"></td>
+            <td class="dark" id="r32"></td>
+            <td class="light" id="r33"></td>
+            <td class="dark" id="r34"></td>
+            <td class="light" id="r35"></td>
+            <td class="dark" id="r36"></td>
+            <td class="light" id="r37"></td>
+            <td class="dark" id="r38"></td>
+        </tr>
+        <tr>
+            <td class="dark" id="r41"></td>
+            <td class="light" id="r42"></td>
+            <td class="dark" id="r43"></td>
+            <td class="light" id="r44"></td>
+            <td class="dark" id="r45"></td>
+            <td class="light" id="r46"></td>
+            <td class="dark" id="r47"></td>
+            <td class="light" id="r48"></td>
+        </tr>
+        <tr>
+            <td class="light" id="r51"></td>
+            <td class="dark" id="r52"></td>
+            <td class="light" id="r53"></td>
+            <td class="dark" id="r54"></td>
+            <td class="light" id="r55"></td>
+            <td class="dark" id="r56"></td>
+            <td class="light" id="r57"></td>
+            <td class="dark" id="r58"></td>
+        </tr>
+        <tr>
+            <td class="dark" id="r61"></td>
+            <td class="light" id="r62"></td>
+            <td class="dark" id="r63"></td>
+            <td class="light" id="r64"></td>
+            <td class="dark" id="r65"></td>
+            <td class="light" id="r66"></td>
+            <td class="dark" id="r67"></td>
+            <td class="light" id="r68"></td>
+        </tr>
+        <tr>
+            <td class="light" id="r71">&#9817</td>
+            <td class="dark" id="r72">&#9817</td>
+            <td class="light" id="r73">&#9817</td>
+            <td class="dark" id="r74">&#9817</td>
+            <td class="light" id="r75">&#9817</td>
+            <td class="dark" id="r76">&#9817</td>
+            <td class="light" id="r77">&#9817</td>
+            <td class="dark" id="r78">&#9817</td>
+        </tr>
+        <tr>
+            <td class="dark" id="r81">&#9814</td>
+            <td class="light" id="r82">&#9816</td>
+            <td class="dark" id="r83">&#9815</td>
+            <td class="light" id="r84">&#9812</td>
+            <td class="dark" id="r85">&#9813</td>
+            <td class="light" id="r86">&#9815</td>
+            <td class="dark" id="r87">&#9816</td>
+            <td class="light" id="r88">&#9814</td>
+        </tr>
+        <audio src="sci-fi.wav" id="id1"></audio>
+
+    </table>
+    <button id="button1">Next</button>
+    <script>
+        let btn1 = document.getElementById("button1");
+        let click1 = document.getElementById("id1");
+        btn1.onclick = function nextMove() {
+            document.getElementById("r74").innerHTML = "";
+            document.getElementById("r54").innerHTML = "&#9817";
+            click1.play();
+        };
+    </script>
+</body>
+
+</html>
