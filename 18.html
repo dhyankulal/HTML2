@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #table1 {
+            font-size: 20px;
+            border: 1px solid red;
+            margin-left: 100px;
+            margin-top: 10px;
+        }
+
+        #table2 {
+            margin-left: 100px;
+        }
+
+        img {
+            width: 50px;
+        }
+
+        #table2 th {
+            width: 60px;
+        }
+
+        #table1 th {
+            width: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <table id="table2">
+        <tr>
+            <th><img src="seat1.svg" alt=""></th>
+            <th><img src="seat2.svg" alt=""></th>
+            <th><img src="seat3.svg" alt=""></th>
+        </tr>
+        <tr>
+            <th>Free</th>
+            <th>Selected</th>
+            <th>Occupied</th>
+        </tr>
+    </table>
+
+    <table id="table1">
+        <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th><img src="steeringwheel.svg" alt=""></th>
+        </tr>
+        <tr>
+            <th><img id="seat1" src="seat1.svg" alt=""></th>
+            <th> </th>
+            <th><img id="seat2" src="seat1.svg" alt=""></th>
+            <th><img id="seat3" src="seat1.svg" alt=""></th>
+        </tr>
+        <tr>
+            <th><img id="seat4" src="seat1.svg" alt=""></th>
+            <th> </th>
+            <th><img id="seat5" src="seat1.svg" alt=""></th>
+            <th><img id="seat6" src="seat1.svg" alt=""></th>
+        </tr>
+        <tr>
+            <th><img id="seat7" src="seat1.svg" alt=""></th>
+            <th> </th>
+            <th><img id="seat8" src="seat1.svg" alt=""></th>
+            <th><img id="seat9" src="seat1.svg" alt=""></th>
+        </tr>
+        <tr>
+            <th><img id="seat10" src="seat1.svg" alt=""></th>
+            <th> </th>
+            <th><img id="seat11" src="seat1.svg" alt=""></th>
+            <th><img id="seat12" src="seat1.svg" alt=""></th>
+        </tr>
+        <tr>
+            <th><img id="seat13" src="seat1.svg" alt=""></th>
+            <th> </th>
+            <th><img id="seat14" src="seat1.svg" alt=""></th>
+            <th><img id="seat15" src="seat1.svg" alt=""></th>
+        </tr>
+        <tr>
+            <th><img id="seat16" src="seat1.svg" alt=""></th>
+            <th> </th>
+            <th><img id="seat17" src="seat1.svg" alt=""></th>
+            <th><img id="seat18" src="seat1.svg" alt=""></th>
+        </tr>
+        <tr>
+            <th><img id="seat19" src="seat1.svg" alt=""></th>
+            <th> </th>
+            <th><img id="seat20" src="seat1.svg" alt=""></th>
+            <th><img id="seat21" src="seat1.svg" alt=""></th>
+        </tr>
+        <tr>
+            <th><img id="seat22" src="seat1.svg" alt=""></th>
+            <th> </th>
+            <th><img id="seat23" src="seat1.svg" alt=""></th>
+            <th><img id="seat24" src="seat1.svg" alt=""></th>
+        </tr>
+        <tr>
+            <th><img id="seat25" src="seat1.svg" alt=""></th>
+            <th> </th>
+            <th><img id="seat26" src="seat1.svg" alt=""></th>
+            <th><img id="seat27" src="seat1.svg" alt=""></th>
+        </tr>
+        <tr>
+            <th><img id="seat28" src="seat1.svg" alt=""></th>
+            <th> </th>
+            <th><img id="seat29" src="seat1.svg" alt=""></th>
+            <th><img id="seat30" src="seat1.svg" alt=""></th>
+        </tr>
+
+    </table>
+</body>
+<script>
+    /*
+        for (let i = 1; i < 31; i++) {
+            let st1a = document.getElementById("seat" + i);
+            st1a.onclick = function changeColour() {
+                document.getElementById("seat" + i).src = "seat2.svg";
+            }
+        }*/
+    for (let i = 1; i < 31; i++) {
+        let st1 = document.getElementById("seat" + i);
+        let st1a = document.getElementById("seat" + i).src;
+        st1.onclick = function changeColour() {
+            if (st1a.includes("seat1.svg")) {
+                document.getElementById("seat" + i).src = "seat2.svg";
+            } else {
+                document.getElementById("seat" + i).src = "seat1.svg";
+            }
+        }
+    };
+</script>
+
+</html>
