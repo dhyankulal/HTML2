@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 140px;
+            width: 140px;
+            background-color: chartreuse;
+        }
+
+        input {
+            width: 200px;
+            height: 20px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <input id="red1" type="text" placeholder="Enter color number"><br>
+    <input id="green1" type="text" placeholder="Enter color number"><br>
+    <input id="blue1" type="text" placeholder="Enter color number"><br>
+    <button id="button1">submit</button>
+    <p id="new1">colour</p>
+
+    <div id="box1"></div>
+    <script>
+        let btn1 = document.getElementById("button1");
+        let rd1 = document.getElementById("red1");
+        let gr1 = document.getElementById("green1");
+        let bl1 = document.getElementById("blue1");
+
+        btn1.onclick = function colorcalender() {
+            if (rd1.value >= 0 && rd1.value < 255 && bl1.value >= 0 && bl1.value < 255 && gr1.value >= 0 && gr1.value < 255) {
+                let clr1 = `rgb(${rd1.value}, ${gr1.value}, ${bl1.value})`;
+                document.getElementById("box1").style.backgroundColor = clr1;
+            } else {
+                document.getElementById("new1").innerText = "Enter the value between (0-255)";
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>
