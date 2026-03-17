@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="category" placeholder="Enter the category: ">
+    <button id="button1">SUBMIT </button>
+    <p id="out1"></p>
+    <script>
+        let btn1 = document.getElementById("button1"); // Fixed: lowercase 'b'
+
+        btn1.onclick = async function dh() {
+            let url1 = "https://icanhazdadjoke.com/search?term=music";
+            let dat1 = await fetch(url1, {
+                headers: { "Accept": "application/json" }
+            });
+
+            let dat2 = await dat1.json();
+
+            let jok1 = dat2.results[0].joke;
+            document.getElementById("out1").textContent = jok1;
+
+            alert(jok1);
+        };
+    </script>
+</body>
+
+</html>
