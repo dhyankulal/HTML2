@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Presidents</title>
+</head>
+
+<body>
+    <img src="President1.jfif" id="image1">
+    <button id="button1">←</button>
+    <button id="button2">→</button>
+    <p id="count1"></p>
+    <script>
+        let img1 = document.getElementById("image1");
+        let btn1 = document.getElementById("button1");
+        let btn2 = document.getElementById("button2");
+        num1 = 1;
+        let list1 = ["President1.jfif", "President2.jfif", "President3.jfif", "President4.jfif", "President5.jfif", "President6.jfif", "President7.jfif", "President8.jfif", "President9.jfif", "President10.jfif", "President11.jfif", "President12.jfif", "President13.jfif", "President14.jfif", "President15.jfif", "President16.jfif", "President17.jfif"];
+        btn1.onclick = function prevPhoto() {
+            if (num1 < 0) {
+                num1 = 16;
+            }
+            img1.src = list1[num1];
+            document.getElementById("count1").textContent = num1;
+            num1 -= 1;
+        }
+        btn2.onclick = function nextPhoto() {
+            num1 = (num1 % 17);
+            img1.src = list1[num1];
+            document.getElementById("count1").textContent = num1;
+            num1 += 1;
+        }
+    </script>
+</body>
+
+</html>
