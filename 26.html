@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="in1">
+
+    </div>
+    <img src="President1.jfif" id="img1">
+</body>
+<script>
+    let list1 = ["President1.jfif", "President2.jfif", "President3.jfif", "President4.jfif", "President5.jfif", "President6.jfif", "President7.jfif", "President8.jfif", "President9.jfif", "President10.jfif", "President11.jfif", "President12.jfif", "President13.jfif", "President14.jfif", "President15.jfif", "President16.jfif", "President17.jfif"];
+    for (let i = 0; i < 17; i++) {
+        document.getElementById("in1").innerHTML += `<img src=${list1[i]}><br>`;
+        //document.getElementById("img1").src = list1[i];
+    }
+</script>
+
+</html>
