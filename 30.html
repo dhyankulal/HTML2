@@ -18,18 +18,20 @@
         let btn2 = document.getElementById("button2");
         num1 = 1;
         let list1 = ["President1.jfif", "President2.jfif", "President3.jfif", "President4.jfif", "President5.jfif", "President6.jfif", "President7.jfif", "President8.jfif", "President9.jfif", "President10.jfif", "President11.jfif", "President12.jfif", "President13.jfif", "President14.jfif", "President15.jfif", "President16.jfif", "President17.jfif"];
+        let list2 = ["George Washington", "Abraham Lincoln", "Theodore Roosevelt", "Woodrow Wilson", "Franklin D. Roosevelt", "Harry S. Truman", "Dwight D. Eisenhower", "John F. Kennedy", "Richard Nixon", "Gerald Ford", "Jimmy Carter", "Ronald Reagan", "George H. W. Bush", "Bill Clinton", "George W. Bush", "Barack Obama", "Joe Biden"];
+
         btn1.onclick = function prevPhoto() {
             if (num1 < 0) {
                 num1 = 16;
             }
             img1.src = list1[num1];
-            //document.getElementById("count1").textContent = num1;
+            document.getElementById("count1").textContent = list2[num1];
             num1 -= 1;
         }
         btn2.onclick = function nextPhoto() {
             num1 = (num1 % 17);
             img1.src = list1[num1];
-            //document.getElementById("count1").textContent = num1;
+            document.getElementById("count1").textContent = list2[num1];
             num1 += 1;
         }
     </script>
