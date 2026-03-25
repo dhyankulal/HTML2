@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="input1">
+    <button id="button1">Create</button>
+    <p id="ans"></p>
+    <script>
+        let in1 = document.getElementById("input1");
+        let btn1 = document.getElementById("button1");
+        let ans1 = document.getElementById("ans");
+        btn1.onclick = function create() {
+            a = in1.value.charAt(0);
+            b = in1.value.charAt(1);
+            c = in1.value.charAt(2);
+            ans1.innerHTML = `<ol><li>${a + b + c}</li><li>${b + c + a}</li><li>${b + a + c}</li><li>${c + a + b}</li><li>${c + b + a}</li><li>${a + c + b}</li></ol>`;
+        }
+
+    </script>
+</body>
+
+</html>
