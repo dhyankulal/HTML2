@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h2>Word Game: File Loader</h2>
+    <div id="status">Loading dictionary...</div>
+    <ul id="display-list"></ul>
+
+    <script>
+        // This is the 2D List you requested: [[apple, art], [ball], ...]
+        let wordBank = Array.from({ length: 26 }, () => []);
+
+        async function loadDictionary() {
+            try {
+                // 1. Fetch the file
+                const response = await fetch('dictionary.txt');
+                const data = await text();
+
+                // 2. Split by new lines and clean up whitespace
+                const words = data.split('\n').map(w => w.trim().toLowerCase()).filter(w => w);
+
+                // 3. Sort by length DESCENDING (to help Computer get higher scores)
+                words.sort((a, b) => b.length - a.length);
+
+                // 4. Organize into the 2D List [a, b, c...]
+                words.forEach(word => {
+                    let index = word.charCodeAt(0) - 97; // 'a' is 97
+                    if (index >= 0 && index < 26) {
+                        wordBank[index].push(word);
+                    }
+                });
+
+                document.getElementById('status').innerText = "Dictionary Loaded! Ready to Play.";
+                console.log("Structured Word Bank:", wordBank);
+
+                // Optional: Show the words on screen to prove it worked
+                displayWords();
+
+            } catch (error) {
+                document.getElementById('status').innerText = "Error: Run this via a Local Server!";
+                console.error("File reading failed:", error);
+            }
+        }
+
+        function displayWords() {
+            const list = document.getElementById('display-list');
+            wordBank.forEach((group, i) => {
+                if (group.length > 0) {
+                    let char = String.fromCharCode(97 + i);
+                    list.innerHTML += `<li><strong>${char}:</strong> ${group.join(', ')}</li>`;
+                }
+            });
+        }
+        //document.getElementById("name").innerHTML += `<p>${s1}</p><br>`;
+
+        loadDictionary();
+    </script>
+</body>
+
+</html>
