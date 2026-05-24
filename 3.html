@@ -4,54 +4,597 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Indian Tricolour Flag</title>
+    <title>Netflix Replica</title>
+
     <style>
-        .seg {
-            width: 600px;
-            height: 150px;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #111;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        /* LOGIN PAGE */
+
+        .login-page {
+            height: 100vh;
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)),
+                url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?q=80&w=1974&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
             display: flex;
             justify-content: center;
+            align-items: center;
+            position: relative;
         }
 
-        .red {
-            background-color: red;
+        .top-logo {
+            position: absolute;
+            top: 20px;
+            left: 40px;
+            color: #e50914;
+            font-size: 3rem;
+            font-weight: bold;
         }
 
-        .white {
-            background-color: white;
+        .login-box {
+            width: 420px;
+            background: rgba(0, 0, 0, 0.78);
+            padding: 60px 68px 40px;
+            border-radius: 5px;
         }
 
-        .green {
-            background-color: green;
+        .login-box h1 {
+            margin-bottom: 28px;
+            font-size: 2rem;
         }
 
-        .button1 {
-            width: 600px;
-            margin-top: 20px;
+        .login-box input {
+            width: 100%;
+            height: 50px;
+            margin-bottom: 16px;
+            padding: 0 15px;
+            border: none;
+            border-radius: 4px;
+            background: #333;
+            color: white;
+            font-size: 16px;
+        }
+
+        .login-btn {
+            width: 100%;
+            height: 50px;
+            border: none;
+            border-radius: 4px;
+            background: #e50914;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .login-btn:hover {
+            background: #f6121d;
+        }
+
+        .remember-help {
+            margin-top: 15px;
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
+            font-size: 13px;
+            color: #b3b3b3;
+        }
+
+        .remember-help a {
+            color: #b3b3b3;
+            text-decoration: none;
+        }
+
+        .signup-text {
+            margin-top: 50px;
+            color: #737373;
+        }
+
+        .signup-text span {
+            color: white;
+            cursor: pointer;
+        }
+
+        .captcha-text {
+            margin-top: 15px;
+            font-size: 13px;
+            color: #8c8c8c;
+            line-height: 1.5;
+        }
+
+        /* MAIN APP */
+
+        #app {
+            display: none;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), transparent);
+        }
+
+        .logo {
+            color: #e50914;
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .profile {
+            width: 35px;
+            height: 35px;
+            border-radius: 4px;
+            background: #555;
+        }
+
+        /* HERO */
+
+        .hero {
+            height: 100vh;
+            background:
+                linear-gradient(to top, #111, transparent),
+                url('https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?q=80&w=1974&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            padding: 0 60px;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .play {
+            background: white;
+            color: black;
+        }
+
+        .info {
+            background: rgba(109, 109, 110, 0.7);
+            color: white;
+        }
+
+        /* VIDEO PLAYER */
+
+        .player-section {
+            padding: 30px 50px;
+        }
+
+        .player-section video {
+            width: 100%;
+            border-radius: 10px;
+            background: black;
+        }
+
+        /* MOVIE ROWS */
+
+        .section {
+            padding: 20px 50px;
+        }
+
+        .section h2 {
+            margin-bottom: 15px;
+        }
+
+        .row {
+            display: flex;
+            overflow-x: auto;
+            gap: 10px;
+        }
+
+        .row::-webkit-scrollbar {
+            display: none;
+        }
+
+        .movie {
+            min-width: 250px;
+            height: 140px;
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .movie img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .movie:hover {
+            transform: scale(1.08);
+        }
+
+        .movie-title {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            padding: 10px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+        }
+
+        /* FOOTER */
+
+        .footer {
+            padding: 40px;
+            text-align: center;
+            color: #888;
+        }
+
+        /* MOBILE */
+
+        @media(max-width:768px) {
+
+            .top-logo {
+                left: 20px;
+                font-size: 2rem;
+            }
+
+            .login-box {
+                width: 90%;
+                padding: 40px 25px;
+            }
+
+            .navbar {
+                padding: 15px 20px;
+            }
+
+            .hero {
+                padding: 20px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section,
+            .player-section {
+                padding: 20px;
+            }
+
+            .movie {
+                min-width: 180px;
+                height: 100px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="seg red"></div>
-    <div class="seg white"><img src="ashokachakra.png" alt="Ashoka chakra"></div>
-    <div class="seg green"></div>
-    <div class="button1">
-        <button id="id1">Play national Anthem</button>
-        <audio src="National-Anthem-India.mp3" id="id2"></audio>
+
+    <!-- LOGIN PAGE -->
+
+    <div class="login-page" id="loginPage">
+
+        <div class="top-logo">
+            NETFLIX
+        </div>
+
+        <div class="login-box">
+
+            <h1>Sign In</h1>
+
+            <input type="text" id="username" placeholder="Email or mobile number">
+
+            <input type="password" id="password" placeholder="Password">
+
+            <button class="login-btn" onclick="login()">
+                Sign In
+            </button>
+
+            <div class="remember-help">
+
+                <label>
+                    <input type="checkbox">
+                    Remember me
+                </label>
+
+                <a href="#">Need help?</a>
+
+            </div>
+
+            <div class="signup-text">
+                New to Netflix?
+                <span>Sign up now.</span>
+            </div>
+
+            <p class="captcha-text">
+                This page is protected by Google reCAPTCHA
+                to ensure you're not a bot.
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- MAIN APP -->
+
+    <div id="app">
+
+        <!-- NAVBAR -->
+
+        <div class="navbar">
+
+            <div class="logo">
+                NETFLIX
+            </div>
+
+            <div class="profile"></div>
+
+        </div>
+
+        <!-- HERO -->
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <h1>STRANGER THINGS</h1>
+
+                <p>
+                    Watch unlimited movies, TV shows and more.
+                </p>
+
+                <div class="hero-buttons">
+
+                    <button class="btn play" onclick="playVideo()">
+                        ▶ Play
+                    </button>
+
+                    <button class="btn info">
+                        More Info
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- VIDEO PLAYER -->
+
+        <section class="player-section">
+
+            <video controls id="videoPlayer">
+
+                <!-- DEFAULT MOVIE LINK -->
+
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+
+            </video>
+
+        </section>
+
+        <!-- TRENDING NOW -->
+
+        <section class="section">
+
+            <h2>Trending Now</h2>
+
+            <div class="row">
+
+                <!-- MOVIE 1 -->
+
+                <div class="movie" onclick="changeMovie('MOVIE_LINK_1_HERE')">
+                    <img src="https://picsum.photos/400/200?1">
+
+                    <div class="movie-title">
+                        Dark City
+                    </div>
+                </div>
+
+                <!-- MOVIE 2 -->
+
+                <div class="movie" onclick="changeMovie('MOVIE_LINK_2_HERE')">
+                    <img src="https://picsum.photos/400/200?2">
+
+                    <div class="movie-title">
+                        Cyber Man
+                    </div>
+                </div>
+
+                <!-- MOVIE 3 -->
+
+                <div class="movie" onclick="changeMovie('MOVIE_LINK_3_HERE')">
+                    <img src="https://picsum.photos/400/200?3">
+
+                    <div class="movie-title">
+                        Lost Kingdom
+                    </div>
+                </div>
+
+                <!-- MOVIE 4 -->
+
+                <div class="movie" onclick="changeMovie('MOVIE_LINK_4_HERE')">
+                    <img src="https://picsum.photos/400/200?4">
+
+                    <div class="movie-title">
+                        Moonlight
+                    </div>
+                </div>
+
+                <!-- MOVIE 5 -->
+
+                <div class="movie" onclick="changeMovie('MOVIE_LINK_5_HERE')">
+                    <img src="https://picsum.photos/400/200?5">
+
+                    <div class="movie-title">
+                        Infinity War
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- TOP PICKS -->
+
+        <section class="section">
+
+            <h2>Top Picks</h2>
+
+            <div class="row">
+
+                <div class="movie" onclick="changeMovie('MOVIE_LINK_6_HERE')">
+                    <img src="https://picsum.photos/400/200?6">
+
+                    <div class="movie-title">
+                        The Last Hero
+                    </div>
+                </div>
+
+                <div class="movie" onclick="changeMovie('MOVIE_LINK_7_HERE')">
+                    <img src="https://picsum.photos/400/200?7">
+
+                    <div class="movie-title">
+                        Night Hunter
+                    </div>
+                </div>
+
+                <div class="movie" onclick="changeMovie('MOVIE_LINK_8_HERE')">
+                    <img src="https://picsum.photos/400/200?8">
+
+                    <div class="movie-title">
+                        Black Shadow
+                    </div>
+                </div>
+
+                <div class="movie" onclick="changeMovie('MOVIE_LINK_9_HERE')">
+                    <img src="https://picsum.photos/400/200?9">
+
+                    <div class="movie-title">
+                        Red Planet
+                    </div>
+                </div>
+
+                <div class="movie" onclick="changeMovie('MOVIE_LINK_10_HERE')">
+                    <img src="https://picsum.photos/400/200?10">
+
+                    <div class="movie-title">
+                        Silent War
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- FOOTER -->
+
+        <div class="footer">
+            Netflix Replica • HTML CSS JavaScript
+        </div>
+
     </div>
 
     <script>
-        let btn1 = document.getElementById("id1");
-        let media1 = document.getElementById("id2");
-        btn1.onclick = function playAnthem() {
-            media1.play();
-            btn1.style.display = "none";// to make the button dissapear
-        };
+
+        /* LOGIN */
+
+        function login() {
+
+            let user =
+                document.getElementById("username").value;
+
+            let pass =
+                document.getElementById("password").value;
+
+            if (user && pass) {
+
+                document.getElementById("loginPage")
+                    .style.display = "none";
+
+                document.getElementById("app")
+                    .style.display = "block";
+
+            } else {
+
+                alert("Enter username and password");
+            }
+        }
+
+        /* PLAY DEFAULT VIDEO */
+
+        function playVideo() {
+
+            let player =
+                document.getElementById("videoPlayer");
+
+            player.scrollIntoView({
+                behavior: "smooth"
+            });
+
+            player.play();
+        }
+
+        /* CHANGE MOVIE */
+
+        function changeMovie(link) {
+
+            let player =
+                document.getElementById("videoPlayer");
+
+            player.src = link;
+
+            player.load();
+
+            player.play();
+
+            player.scrollIntoView({
+                behavior: "smooth"
+            });
+        }
+
     </script>
+
 </body>
 
 </html>
-//https://dhyankulal.github.io/HTML/3.html
